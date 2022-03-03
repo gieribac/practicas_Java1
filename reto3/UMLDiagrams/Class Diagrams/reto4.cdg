@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="reto4">
+  <ClassDiagramComponents>
+    <Class name="Usuario" package="" visibility="public" isAbstract="true" xPosition="330.0" yPosition="25.0">
+      <Fields>
+        <Field name="user" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="documento" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Autenticar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="" visibility="public" xPosition="17.0" yPosition="127.0">
+      <Fields>
+        <Field name="fechaRegistro" type="String" visibility="private"/>
+        <Field name="fechaReserva" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Registrar" returnType="void" visibility="public"/>
+        <Method name="Reservar" returnType="void" visibility="public"/>
+        <Method name="Checkin" returnType="void" visibility="public"/>
+        <Method name="Checkout" returnType="void" visibility="public"/>
+        <Method name="Cotizar" returnType="void" visibility="public"/>
+        <Method name="Pagar" returnType="void" visibility="public"/>
+        <Method name="CalificarServicio" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Administrador" package="" visibility="public" xPosition="722.0" yPosition="146.0">
+      <Fields>
+        <Field name="referenciaReporte" type="String" visibility="private"/>
+        <Field name="identificacion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="GenerarDisponibilidad" returnType="void" visibility="public"/>
+        <Method name="GenerarReporte" returnType="void" visibility="public"/>
+        <Method name="Facturar" returnType="void" visibility="public"/>
+        <Method name="CalificarCliente" returnType="void" visibility="public"/>
+        <Method name="RegistrarVisita" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cobro" package="" visibility="public" xPosition="17.0" yPosition="435.0">
+      <Fields>
+        <Field name="refFactura" type="String" visibility="private"/>
+        <Field name="tipoDePago" type="String" visibility="private"/>
+        <Field name="datosCliente" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="PagoElectronico" returnType="void" visibility="public"/>
+        <Method name="PagoEnfectivo" returnType="void" visibility="public"/>
+        <Method name="PagoConTarjeta" returnType="void" visibility="public"/>
+        <Method name="VerificarTransaccion" returnType="void" visibility="public"/>
+        <Method name="Rechazar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RegistroVisita" package="" visibility="public" xPosition="496.0" yPosition="670.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="private"/>
+        <Field name="hora" type="String" visibility="private"/>
+        <Field name="docCliente" type="String" visibility="private"/>
+        <Field name="servicios" type="String" visibility="private"/>
+        <Field name="valCobro" type="String" visibility="private"/>
+        <Field name="comentario" type="String" visibility="private"/>
+        <Field name="calCliente" type="String" visibility="private"/>
+        <Field name="datosCliente" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Reporte" package="" visibility="public" xPosition="767.0" yPosition="670.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="private"/>
+        <Field name="hora" type="String" visibility="private"/>
+        <Field name="docCliente" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="comentario" type="String" visibility="private"/>
+        <Field name="valcobro" type="String" visibility="private"/>
+        <Field name="calCliente" type="String" visibility="private"/>
+        <Field name="datosCliente" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="PazYSalvo" package="" visibility="public" xPosition="193.0" yPosition="705.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="private"/>
+        <Field name="hora" type="String" visibility="private"/>
+        <Field name="docCliente" type="String" visibility="private"/>
+        <Field name="servicios" type="String" visibility="private"/>
+        <Field name="comentario" type="String" visibility="private"/>
+        <Field name="valCobro" type="String" visibility="private"/>
+        <Field name="calCliente" type="String" visibility="private"/>
+        <Field name="datosCliente" type="String[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Reservacion" package="" visibility="public" xPosition="352.0" yPosition="234.0">
+      <Fields>
+        <Field name="datosCliente" type="String[]" visibility="private"/>
+        <Field name="refServico" type="String" visibility="private"/>
+        <Field name="comentarios" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="generado por" source="PazYSalvo" target="Cobro" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="generado" source="Reservacion" target="Cliente" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="consume" source="Reporte" target="RegistroVisita" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Administrador" target="Usuario"/>
+    <IsRelation name="is" source="Cliente" target="Usuario"/>
+    <HasRelation name="paga" source="Cobro" target="Cliente" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="habilitada por" source="Reservacion" target="Administrador" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="consume" source="RegistroVisita" target="PazYSalvo" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="hace" source="Cobro" target="Administrador" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,8 @@
+domain\Supervisor.class
+test\App1.class
+domain\Receptionist.class
+domain\Cashier.class
+domain\Client.class
+domain\Employee.class
+domain\Account.class
+domain\Investor.class

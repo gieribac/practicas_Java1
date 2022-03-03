@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="primeruml">
+  <ClassDiagramComponents>
+    <Interface name="AccionEspecialzada" package="" visibility="public" xPosition="95.0" yPosition="48.0">
+      <Methods>
+        <Method name="Hablar" returnType="void" visibility="public"/>
+        <Method name="Bailar" returnType="void" visibility="public"/>
+        <Method name="Trabajar" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="AccionBasica" package="" visibility="public" xPosition="375.0" yPosition="48.0">
+      <Methods>
+        <Method name="Cantar" returnType="void" visibility="public"/>
+        <Method name="Caminar" returnType="void" visibility="public"/>
+        <Method name="Correr" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Animal" package="" visibility="public" xPosition="826.0" yPosition="109.0">
+      <Fields>
+        <Field name="categoriaAnimal" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="MonstrarCategoria" returnType="void" visibility="public"/>
+        <Method name="Cantar" returnType="void" visibility="public"/>
+        <Method name="Caminar" returnType="void" visibility="public"/>
+        <Method name="Correr" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carnivoro" package="" visibility="public" xPosition="688.0" yPosition="425.0">
+      <Fields>
+        <Field name="especie" type="String" visibility="private"/>
+        <Field name="raza" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="MonstrarDato" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Hervivoro" package="" visibility="public" xPosition="960.0" yPosition="423.0">
+      <Fields>
+        <Field name="lugarHabit" type="int" visibility="private"/>
+        <Field name="peso" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="MonstrarDato" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="253.0" yPosition="238.0">
+      <Fields>
+        <Field name="documento" type="int" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="untitledField" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="MostrarNombre" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Estudiante" package="" visibility="public" xPosition="154.0" yPosition="486.0">
+      <Fields>
+        <Field name="codigoEstudiante" type="int" visibility="private"/>
+        <Field name="carrera" type="String" visibility="private"/>
+        <Field name="universidad" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Empleado" package="" visibility="public" xPosition="443.0" yPosition="486.0">
+      <Fields>
+        <Field name="codigoEmpelado" type="int" visibility="private"/>
+        <Field name="empresa" type="String" visibility="private"/>
+        <Field name="salario" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="MostrarDatos" returnType="void" visibility="public"/>
+        <Method name="untitledMethod1" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Persona" target="AccionEspecialzada"/>
+    <IsRelation name="is" source="Hervivoro" target="Animal"/>
+    <IsRelation name="is" source="Empleado" target="Persona"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Persona" target="AccionBasica"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Animal" target="AccionBasica"/>
+    <IsRelation name="is" source="Carnivoro" target="Animal"/>
+    <IsRelation name="is" source="Estudiante" target="Persona"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
